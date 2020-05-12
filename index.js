@@ -133,8 +133,9 @@ myPage.push(' ')
 //Add a Questions? and contact section (with profile pic and email)
 myPage.push('# Questions')
 myPage.push(`![user-image](${imgURL})`)
-myPage.push(`${userName}`)
-myPage.push(`${userEmail}`)
+myPage.push(' ')
+myPage.push(`username: ${userName}`)
+myPage.push(`email: ${userEmail}`)
 myPage.push(' ')
 //Create the readme file
 
