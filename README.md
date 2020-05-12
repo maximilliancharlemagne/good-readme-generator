@@ -1,4 +1,4 @@
-https://img.shields.io/github/languages/top/maximilliancharlemagne/good-readme-generator
+![badge](https://img.shields.io/github/languages/top/maximilliancharlemagne/good-readme-generator)
  
 # Good README Generator
  
