@@ -41,7 +41,7 @@ rl.question("Please input your github username. \n", function (name) {
   //set event listener
   request.onload = getMyData
   // Initialize a request
-  request.open('get', `https://api.github.com/users/${name}`)
+  request.open('get', `https://api.github.com/users/${name}`,false) //false makes this synchronous
   // Send it
   request.send()
   
@@ -61,8 +61,10 @@ let myPage = [] //needs to be a let, this variable will be VERY mutable
 //with each element on a new line. While we are still assembling the sections, it is more convenient
 //to have it in array form, in case we want to modify something later
 
+let savedRepoName
 //Get the repo name and add a 'primary language' badge to the page
 rl.question("What is the name of your project repository? \n", function (repoName) {
+  savedRepoName = repoName //save this for the README filename
   myPage.push(`https://img.shields.io/github/languages/top/${userName}/${repoName}`)
   myPage.push(' ')
   rl.close()
@@ -155,7 +157,7 @@ myPage.push(`${userName}`)
 myPage.push(`${userEmail}`)
 myPage.push(' ')
 //Create the readme file
-fs.writeFile('README.md', myPage.join('\n'), err => console.log(`error was thrown: ${err}`))
+fs.writeFile(`${savedRepoName}-README.md`, myPage.join('\n'), err => console.log(`error was thrown: ${err}`))
 //If there's an error, show the error in the console
 
 //Show some kind of message in the console, so the user knows we at least tried to create the file
