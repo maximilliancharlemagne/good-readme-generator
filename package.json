@@ -1,0 +1,25 @@
+{
+  "name": "good-readme-generator",
+  "version": "1.0.0",
+  "description": "some node.js code to generate good readmes for my github projects",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maximilliancharlemagne/good-readme-generator.git"
+  },
+  "keywords": [
+    "readme",
+    "generator",
+    "node",
+    "javascript"
+  ],
+  "author": "Maxwell Roberts",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/maximilliancharlemagne/good-readme-generator/issues"
+  },
+  "homepage": "https://github.com/maximilliancharlemagne/good-readme-generator#readme"
+}
