@@ -141,7 +141,7 @@ myPage.push(' ')
 console.log(myPage)
 console.log(savedRepoName)
 
-fs.writeFile(`${savedRepoName}-README.md`, myPage.join('\n'), err => if(err){console.log(err)})
+fs.writeFile(`${savedRepoName}-README.md`, myPage.join('\n'), err => {if(err){console.log(err)}})
 //If there's an error, show the error in the console
 
 //Show some kind of message in the console, so the user knows we at least tried to create the file
