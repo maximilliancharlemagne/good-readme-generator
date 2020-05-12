@@ -55,7 +55,7 @@ let myPage = [] //needs to be a let, this variable will be VERY mutable
 let savedRepoName
 //Get the repo name and add a 'primary language' badge to the page
 savedRepoName = rl.question("What is the name of your project repository? \n")
-myPage.push(`https://img.shields.io/github/languages/top/${userName}/${savedRepoName}`)
+myPage.push(`![badge](https://img.shields.io/github/languages/top/${userName}/${savedRepoName})`)
 myPage.push(' ')
 
 //Add a project title
