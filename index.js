@@ -91,16 +91,72 @@ myPage.push(`## Questions & Contact`)
 myPage.push(' ')
 
 //Add an installation guide
+rl.question("How do you install your project? \n", function (desc) {
+  myPage.push('# Installation')
+  myPage.push(desc)
+  myPage.push(' ')
+  rl.close()
+})
+
 //Add a usage guide
+rl.question("How do you use your project? \n", function (desc) {
+  myPage.push('# Usage')
+  myPage.push(desc)
+  myPage.push(' ')
+  rl.close()
+})
+
 //Add a license
+myPage.push('# License')
+myPage.push(`MIT License
+
+Copyright (c) [year] [fullname]
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.`) //we gon find out if this preserves newlines
+myPage.push(' ')
+
 //Add a list of contributors
+rl.question("Please provide a comma-separated list of all contributors to the project. \n", function (coders) {
+  myPage.push('# Contributors')
+  myPage.push(' ')
+  aReallyGoodList = coders.split(',')
+  for(let index in aReallyGoodList){
+    myPage.push(aReallyGoodList[index])
+  }
+  rl.close()
+})
 //Add some example tests
+rl.question("How do you test your project? \n", function (desc) {
+  myPage.push('# Testing')
+  myPage.push(desc)
+  myPage.push(' ')
+  rl.close()
+})
 //Add a Questions? and contact section (with profile pic and email)
-
+myPage.push('# Questions')
+myPage.push(`![user-image](${imgURL})`)
+myPage.push(`${userName}`)
+myPage.push(`${userEmail}`)
+myPage.push(' ')
 //Create the readme file
-// fs.writeFile('README.md', data)
+fs.writeFile('README.md', myPage.join('\n'), err => console.log(`error was thrown: ${err}`))
+//If there's an error, show the error in the console
 
-//Show some kind of message in the console,
-//so the user knows the file was successfully created
-
-//Unless it wasn't, in which case show the error in the console
+//Show some kind of message in the console, so the user knows we at least tried to create the file
+console.log(`File created`)
