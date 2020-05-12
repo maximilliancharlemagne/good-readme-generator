@@ -1,5 +1,8 @@
 // An application to generate good READMEs
 
+//require xmlhttprequest
+const XMLHttpRequest = require('xmlhttprequest').XMLHttpRequest
+
 //require filesystem
 const fs = require('fs')
 
@@ -12,22 +15,31 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-//make a function to log data from an API call
-function dumpResponse() {
+//create global vars to get data out of the callback function of the API call
+let imgURL
+let userEmail
+let userName
+
+//make a function to get the data from the API call
+function getMyData() {
   // `this` will refer to the `XMLHTTPRequest` object that executes this function
-  console.log(this.responseText);
+  let myObject = JSON.parse(this.responseText)
+  // console.log(myObject)
+  imgURL = myObject.avatar_url
+  userEmail = myObject.email
+  // console.log(`Image url: ${imgURL}, user email: ${userEmail}`)
 }
 
 //from https://nodejs.org/en/knowledge/command-line/how-to-prompt-for-command-line-input/
 
 //Open the I/O stream and prompt the user for their github username
-rl.question("Please input your github username. ", function (name) {
-  // Create a new request object (with vanilla JS, gonna wait till the class on NPM today
-  // to figure out how to get jQuery)
-  //next 3 lines from here: https://stackoverflow.com/questions/10341135/example-of-using-github-api-from-javascript
-  let request = new XMLHttpRequest(); //need to install this with npm
+rl.question("Please input your github username. \n", function (name) {
+  userName = name //kick that up to the global variable so we can use it later
+  // Create a new request object
+  //from: https://stackoverflow.com/questions/10341135/example-of-using-github-api-from-javascript
+  let request = new XMLHttpRequest();
   //set event listener
-  request.onload = dumpResponse
+  request.onload = getMyData
   // Initialize a request
   request.open('get', `https://api.github.com/users/${name}`)
   // Send it
@@ -49,8 +61,16 @@ let myPage = [] //needs to be a let, this variable will be VERY mutable
 //on a new line. While we are still assembling the sections, it is more convenient
 //to have it in array form, in case we want to modify something later
 
-//Add a badge
+//Get the repo name and add a badge to the page
+rl.question("What is the name of your project repository? \n", function (repoName) {
+  myPage.push(`https://img.shields.io/github/languages/top/${userName}/${repoName}`)
+  rl.close()
+})
+
 //Add a project title
+rl.question("Please input your github username. \n", function (name) {
+  rl.close()
+})
 //Add a project description
 //Add a table of contents
 //Add an installation guide
