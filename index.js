@@ -12,6 +12,12 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
+//make a function to log data from an API call
+function dumpResponse() {
+  // `this` will refer to the `XMLHTTPRequest` object that executes this function
+  console.log(this.responseText);
+}
+
 //from https://nodejs.org/en/knowledge/command-line/how-to-prompt-for-command-line-input/
 
 //Open the I/O stream and prompt the user for their github username
@@ -19,12 +25,14 @@ rl.question("Please input your github username.", function (name) {
   // Create a new request object (with vanilla JS, gonna wait till the class on NPM today
   // to figure out how to get jQuery)
   //next 3 lines from here: https://stackoverflow.com/questions/10341135/example-of-using-github-api-from-javascript
-  var request = new XMLHttpRequest();
-
+  let request = new XMLHttpRequest();
+  //set event listener
+  request.onload = dumpResponse
   // Initialize a request
   request.open('get', `https://api.github.com/users/${}`)
   // Send it
   request.send()
+  
   //Call the github API to get
   //their email
   //their profile image
