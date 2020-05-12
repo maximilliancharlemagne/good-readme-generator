@@ -57,22 +57,39 @@ rl.question("Please input your github username. \n", function (name) {
 
 //Create a variable to hold the page until we write it
 let myPage = [] //needs to be a let, this variable will be VERY mutable
-//later, we will use myPage.join('\n') to combine the array into a string to write, with each section
-//on a new line. While we are still assembling the sections, it is more convenient
+//later, we will use myPage.join('\n') to combine the array into a string to write to the final file,
+//with each element on a new line. While we are still assembling the sections, it is more convenient
 //to have it in array form, in case we want to modify something later
 
-//Get the repo name and add a badge to the page
+//Get the repo name and add a 'primary language' badge to the page
 rl.question("What is the name of your project repository? \n", function (repoName) {
   myPage.push(`https://img.shields.io/github/languages/top/${userName}/${repoName}`)
+  myPage.push(' ')
   rl.close()
 })
 
 //Add a project title
-rl.question("Please input your github username. \n", function (name) {
+rl.question("What is the title of your project? \n", function (title) {
+  myPage.push(`# ${title}`)
+  myPage.push(' ')
   rl.close()
 })
 //Add a project description
+rl.question("Describe your project. \n", function (desc) {
+  myPage.push(desc)
+  myPage.push(' ')
+  rl.close()
+})
 //Add a table of contents
+myPage.push(`# Table of Contents`)
+myPage.push(`## Installation`)
+myPage.push(`## Usage`)
+myPage.push(`## License`)
+myPage.push(`## Contributors`)
+myPage.push(`## Tests`)
+myPage.push(`## Questions & Contact`)
+myPage.push(' ')
+
 //Add an installation guide
 //Add a usage guide
 //Add a license
