@@ -21,15 +21,15 @@ function dumpResponse() {
 //from https://nodejs.org/en/knowledge/command-line/how-to-prompt-for-command-line-input/
 
 //Open the I/O stream and prompt the user for their github username
-rl.question("Please input your github username.", function (name) {
+rl.question("Please input your github username. ", function (name) {
   // Create a new request object (with vanilla JS, gonna wait till the class on NPM today
   // to figure out how to get jQuery)
   //next 3 lines from here: https://stackoverflow.com/questions/10341135/example-of-using-github-api-from-javascript
-  let request = new XMLHttpRequest();
+  let request = new XMLHttpRequest(); //need to install this with npm
   //set event listener
   request.onload = dumpResponse
   // Initialize a request
-  request.open('get', `https://api.github.com/users/${}`)
+  request.open('get', `https://api.github.com/users/${name}`)
   // Send it
   request.send()
   
