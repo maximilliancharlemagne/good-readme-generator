@@ -2,7 +2,7 @@ https://img.shields.io/github/languages/top/maximilliancharlemagne/good-readme-g
  
 # Good README Generator
  
-This is a Node.js application to partially automate the tedious task of generating READMEs. You answer a series of questions in the console, and the program will created an appropriate Markdown file containing a completed README, including the MIT license.
+This is a Node.js application to partially automate the tedious task of generating READMEs. You answer a series of questions in the console, and the program will create an appropriate Markdown file containing a completed README, including the MIT license.
  
 # Table of Contents
 ## Installation
