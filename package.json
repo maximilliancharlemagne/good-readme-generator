@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/maximilliancharlemagne/good-readme-generator#readme",
   "dependencies": {
+    "readline-sync": "^1.4.10",
     "xmlhttprequest": "^1.8.0"
   }
 }

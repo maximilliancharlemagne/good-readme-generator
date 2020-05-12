@@ -7,13 +7,13 @@ const XMLHttpRequest = require('xmlhttprequest').XMLHttpRequest
 const fs = require('fs')
 
 //require readline
-const readline = require('readline')
+const rl = require('readline-sync')
 
 //do some stuff I don't really understand with readline
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
-});
+// const rl = readline.createInterface({
+//   input: process.stdin,
+//   output: process.stdout
+// });
 
 //create global vars to get data out of the callback function of the API call
 let imgURL
@@ -157,6 +157,10 @@ myPage.push(`${userName}`)
 myPage.push(`${userEmail}`)
 myPage.push(' ')
 //Create the readme file
+
+console.log(myPage)
+console.log(savedRepoName)
+
 fs.writeFile(`${savedRepoName}-README.md`, myPage.join('\n'), err => console.log(`error was thrown: ${err}`))
 //If there's an error, show the error in the console
 
