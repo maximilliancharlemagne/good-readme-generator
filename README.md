@@ -48,7 +48,8 @@ Maxwell Roberts
 No automated testing code is included with this project. To manually test it, run the application, and observe the final console.log of the myPage variable, containing the page to be written.
  
 # Questions
-![user-image](https://avatars3.githubusercontent.com/u/13306164?v=4 =200px)
+![user-image](https://avatars3.githubusercontent.com/u/13306164?v=4)
+
 maximilliancharlemagne
 maxwell.k.roberts@gmail.com
  
