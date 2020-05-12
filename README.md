@@ -50,6 +50,6 @@ No automated testing code is included with this project. To manually test it, ru
 # Questions
 ![user-image](https://avatars3.githubusercontent.com/u/13306164?v=4)
 
-maximilliancharlemagne
-maxwell.k.roberts@gmail.com
+username: maximilliancharlemagne
+email: maxwell.k.roberts@gmail.com
  
